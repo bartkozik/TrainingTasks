@@ -9,3 +9,16 @@ def superDigit(n, k):
             super_num += int(num)
         count = super_num
     return count
+
+
+# def check(n):
+#     if n < 10:
+#         return n
+#     else:
+#         s = sum([int(x) for x in str(n)])
+#         return check(s)
+#
+#
+# def superDigit(n, k):
+#     s = check(int(n)) * k
+#     return check(s)
