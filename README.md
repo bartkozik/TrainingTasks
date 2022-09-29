@@ -504,3 +504,103 @@ Enqueue ; .
 Enqueue ; .
 Dequeue the value at the head of the queue, ; .
 Dequeue the value at the head of the queue, ; 
+
+
+*** Balanced BRackets ***
+
+A bracket is considered to be any one of the following characters: (, ), {, }, [, or ].
+Two brackets are considered to be a matched pair if the an opening bracket (i.e., (, [, or {) occurs to the left of a closing bracket (i.e., ), ], or }) of the exact same type. There are three types of matched pairs of brackets: [], {}, and ().
+A matching pair of brackets is not balanced if the set of brackets it encloses are not matched. For example, {[(])} is not balanced because the contents in between { and } are not balanced. The pair of square brackets encloses a single, unbalanced opening bracket, (, and the pair of parentheses encloses a single, unbalanced closing square bracket, ].
+By this logic, we say a sequence of brackets is balanced if the following conditions are met:
+It contains no unmatched brackets.
+The subset of brackets enclosed within the confines of a matched pair of brackets is also a matched pair of brackets.
+Given  strings of brackets, determine whether each sequence of brackets is balanced. If a string is balanced, return YES. Otherwise, return NO.
+Function Description
+Complete the function isBalanced in the editor below.
+isBalanced has the following parameter(s):
+string s: a string of brackets
+Returns
+string: either YES or NO
+Input Format
+The first line contains a single integer , the number of strings. 
+Each of the next  lines contains a single string , a sequence of brackets.
+Constraints
+
+, where is the length of the sequence.
+All chracters in the sequences ∈ { {, }, (, ), [, ] }.
+Output Format
+For each string, return YES or NO.
+Sample Input
+STDIN Function ----- -------- 3 n = 3 {[()]} first s = '{[()]}' {[(])} second s = '{[(])}' {{[[(())]]}} third s ='{{[[(())]]}}'
+Sample Output
+YES
+NO
+YES
+Explanation
+The string {[()]} meets both criteria for being a balanced string.
+The string {[(])} is not balanced because the brackets enclosed by the matched pair { and } are not balanced: [(]).
+The string {{[[(())]]}} meets both criteria for being a balanced string.
+
+
+*** Simple Text Editor ***
+
+Implement a simple text editor. The editor initially contains an empty string, . Perform  operations of the following  types:
+append - Append string  to the end of .
+delete - Delete the last  characters of .
+print - Print the  character of .
+undo - Undo the last (not previously undone) operation of type  or , reverting  to the state it was in prior to that operation.
+Example
+ 
+
+operation
+index   S       ops[index]  explanation
+-----   ------  ----------  -----------
+0       abcde   1 fg        append fg
+1       abcdefg 3 6         print the 6th letter - f
+2       abcdefg 2 5         delete the last 5 letters
+3       ab      4           undo the last operation, index 2
+4       abcdefg 3 7         print the 7th characgter - g
+5       abcdefg 4           undo the last operation, index 0
+6       abcde   3 4         print the 4th character - d
+The results should be printed as:
+f
+g
+d
+Input Format
+The first line contains an integer, , denoting the number of operations. 
+Each line  of the  subsequent lines (where ) defines an operation to be performed. Each operation starts with a single integer,  (where ), denoting a type of operation as defined in the Problem Statement above. If the operation requires an argument,  is followed by its space-separated argument. For example, if  and , line  will be 1 abcd.
+Constraints
+
+
+The sum of the lengths of all  in the input .
+The sum of  over all delete operations .
+All input characters are lowercase English letters.
+It is guaranteed that the sequence of operations given as input is possible to perform.
+Output Format
+Each operation of type  must print the  character on a new line.
+Sample Input
+STDIN   Function
+-----   --------
+8       Q = 8
+1 abc   ops[0] = '1 abc'
+3 3     ops[1] = '3 3'
+2 3     ...
+1 xy
+3 2
+4 
+4 
+3 1
+Sample Output
+c
+y
+a
+Explanation
+Initially,  is empty. The following sequence of  operations are described below:
+. We append  to , so .
+Print the  character on a new line. Currently, the character is c.
+Delete the last  characters in  (), so .
+Append  to , so .
+Print the  character on a new line. Currently, the character is y.
+Undo the last update to , making  empty again (i.e., ).
+Undo the next to last update to  (the deletion of the last characters), making .
+Print the  character on a new line. Currently, the character is a.
